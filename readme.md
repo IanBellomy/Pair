@@ -22,6 +22,7 @@ LAYER1 and LAYER2 are Framer Layers. LAYER1 will be the anchorLayer. LAYER2 will
 ## Methods
 In order of importance. 
 
+---
 
 	enableDragAndDrop()
 
@@ -38,11 +39,14 @@ You can listen for events by using
 	on(eventName, eventFunction)
 
 
+---
 
 	disableDragAndDrop()
 
 Once called, the floatLayer will not be draggable, and any drag event listeners will be not be called. (The listeners will remain in the event that enableDragAndDrop() is called. )
 
+
+---
 
 	onContactChange(startFn,endFn=->)  : returns index
 
@@ -50,11 +54,15 @@ Add an event listener for when the layers come into contact or leave contact.
 The function returns an index which can be used to remove the listeners later.
 
 
+---
+
 	offCollisionChange(index)
 
 Add an event listener for when the layers come into contact or leave contact.
 The function returns an index which can be used to remove the listeners later.
 
+
+---
 
 	onRangeChange(min,max,enterFn,exitFn=->)  : returns index
 
@@ -63,29 +71,50 @@ Add an event handlers for when the distance between the layers enters a specific
 
 The function returns an index which can be used to remove the listeners later.
 
+
+---
+
 	offRangeChange(index)
+
 Remove a range listener identified by an index
 
+
+---
 
 	getDistance()
 
 Returns the distance between the two midpoints of the anchorLayer and floatLayer
 
+
+---
+
 	setDistance(value)
 
 Sets the distance between the two midpoints of the anchorLayer and floatLayer by moving the float layer. Maintains the angle between the two layers. 
+
+
+---
 
 	midPoint()  : returns [x,y]
 
 Returns the midpoint between the mindpoints of the anchorLayer and floatLayer.
 
+
+---
+
 	sleep()
+
 No drag events, range events, or collision events will be emitted.
 
+
+---
 
 	wake()
 
 Drag events, range events, and collision events will be emitted like normal.
+
+
+---
 
 	destroy()
 
@@ -93,14 +122,3 @@ Call this if the pair is no longer needed. It will go to sleep and all event lis
 
 
 
-## Events
-
-
-	"dragEnter"
-	"dragLeave"
-	"dragOver"
-	"dragOver"
-	"drop"
-	"invalidDrop"
-
-See enableDragAndDrop() for more details. 

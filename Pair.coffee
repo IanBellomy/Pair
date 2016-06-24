@@ -132,7 +132,7 @@ class exports.Pair extends Framer.EventEmitter
 		return count
 
 
-	offCollisionChange: (index) ->
+	offContactChange: (index) ->
 		@collisionListeners[index] = null 			
 
 

@@ -56,7 +56,7 @@ Once called, the `floatLayer` will not be draggable, and any drag event listener
 
 
 
-#### .onContactChange
+#### .onContactChange(...)
 
 ````coffeescript
 onContactChange(startFn,endFn=->)  : returns index
@@ -66,7 +66,7 @@ The function returns an index which can be used to remove the listeners later.
 
 
 
-#### .offContactChange
+#### .offContactChange(...)
 
 ````coffeescript
 offContactChange(index)
@@ -76,7 +76,7 @@ Opposite of `onContactChange()`
 
 
 
-#### .onRangeChange
+#### .onRangeChange(...)
 
 ````coffeescript
 onRangeChange(min,max,enterFn,exitFn=->)  : returns index
@@ -90,7 +90,7 @@ The function returns an index which can be used to remove the listeners later.
 
 
 
-#### .offRangeChange
+#### .offRangeChange(...)
 
 ````coffeescript
 offRangeChange(index)
@@ -100,7 +100,7 @@ Opposite of `onRangeChange()`
 
 
 
-#### .getDistance
+#### .getDistance()
 
 ````coffeescript
 getDistance()
@@ -110,7 +110,7 @@ Returns the distance between the midpoints of `anchorLayer` and `floatLayer`.
 
 
 
-#### .setDistance
+#### .setDistance(...)
 
 ````coffeescript
 setDistance(value)
@@ -120,7 +120,7 @@ Sets the distance between the two midpoints of `anchorLayer` and `floatLayer` by
 
 
 
-#### .midPoint
+#### .midPoint()
 
 ````coffeescript
 midPoint()  : returns [x,y]
@@ -130,7 +130,7 @@ Returns the midpoint between the mindpoints of the `anchorLayer` and `floatLayer
 
 
 
-#### .sleep
+#### .sleep()
 
 ````coffeescript
 sleep()
@@ -140,7 +140,7 @@ No drag events, range events, or collision events will be emitted.
 
 
 
-#### .wake
+#### .wake()
 
 ````coffeescript
 wake()
@@ -150,7 +150,7 @@ Drag events, range events, and collision events will be emitted like normal.
 
 
 
-#### .destroy
+#### .destroy()
 
 ````coffeescript
 destroy()

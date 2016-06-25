@@ -22,9 +22,12 @@ In your file, write:
 ## Methods
 In order of importance. 
 
----
 
-	enableDragAndDrop()
+#### .enableDragAndDrop()
+
+````coffeescript
+enableDragAndDrop()
+````
 
 Once called, the floatLayer will become draggable, and the pair will emit the following events: 
 
@@ -36,36 +39,48 @@ Once called, the floatLayer will become draggable, and the pair will emit the fo
 
 You can listen for events by using
 
-	on(eventName, eventFunction)
+````coffeescript
+on(eventName, eventFunction)
+````
 
 The handlers will be scoped to the Pair object. (i.e. `this` will refer to the Pair.)
 
----
 
-	disableDragAndDrop()
+#### .disableDragAndDrop()
+
+````coffeescript
+disableDragAndDrop()
+````
 
 Once called, the `floatLayer` will not be draggable, and any drag event listeners will be not be called. 
 
 
----
 
-	onContactChange(startFn,endFn=->)  : returns index
+#### .onContactChange
 
+````coffeescript
+onContactChange(startFn,endFn=->)  : returns index
+````
 Add an event listener for when the layers' _frames_ come into contact or leave contact.
 The function returns an index which can be used to remove the listeners later.
 
 
----
 
-	offContactChange(index)
+#### .offContactChange
+
+````coffeescript
+offContactChange(index)
+````
 
 Opposite of `onContactChange()` 
 
 
----
 
-	onRangeChange(min,max,enterFn,exitFn=->)  : returns index
+#### .onRangeChange
 
+````coffeescript
+onRangeChange(min,max,enterFn,exitFn=->)  : returns index
+````
 
 Add event handlers for when the distance between layers enters a specific range. The range is defined by `min` and `max`. The `enterFn` function is called when distance becomes `<= max`, or `>= min`. Vice versa for the `exitFn`.
 
@@ -74,51 +89,72 @@ Distance is measured from the layers midpoints.
 The function returns an index which can be used to remove the listeners later.
 
 
----
 
-	offRangeChange(index)
+#### .offRangeChange
+
+````coffeescript
+offRangeChange(index)
+````
 
 Opposite of `onRangeChange()`
 
 
----
 
-	getDistance()
+#### .getDistance
+
+````coffeescript
+getDistance()
+````
 
 Returns the distance between the midpoints of `anchorLayer` and `floatLayer`.
 
 
----
 
-	setDistance(value)
+#### .setDistance
+
+````coffeescript
+setDistance(value)
+````
 
 Sets the distance between the two midpoints of `anchorLayer` and `floatLayer` by moving `floatLayer`. Maintains the angle between the two layers. 
 
 
----
 
-	midPoint()  : returns [x,y]
+#### .midPoint
+
+````coffeescript
+midPoint()  : returns [x,y]
+````
 
 Returns the midpoint between the mindpoints of the `anchorLayer` and `floatLayer`.
 
 
----
 
-	sleep()
+#### .sleep
+
+````coffeescript
+sleep()
+````
 
 No drag events, range events, or collision events will be emitted.
 
 
----
 
-	wake()
+#### .wake
+
+````coffeescript
+wake()
+````
 
 Drag events, range events, and collision events will be emitted like normal.
 
 
----
 
-	destroy()
+#### .destroy
+
+````coffeescript
+destroy()
+````
 
 Call this if the pair is no longer needed. It will go to sleep and all event listeners will be removed. 
 

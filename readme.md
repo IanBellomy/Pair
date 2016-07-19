@@ -17,7 +17,7 @@ Create a pair and enable drag and drop
 	myPair = PairModule.Pair(floatLayer,anchorLayer)
 	myPair.enableDragAndDrop()
 
-`floatLayer` and `anchorLayer` are FramerJS Layers. `floatLayer` will be the draggable layer, `anchorLayer` will be the drag target.
+`floatLayer` and `anchorLayer` must be Layers. `floatLayer` will be the draggable layer, `anchorLayer` will be the drag target.
 
 
 

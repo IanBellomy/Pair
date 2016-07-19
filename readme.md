@@ -13,10 +13,10 @@ In your file, write:
 
 ## Create a pair
 
-	myPair = PairModule.Pair(anchorLayer,floatLayer)
+	myPair = PairModule.Pair(floatLayer,anchorLayer)
 
 
-`anchorLayer` and `floatLayer` are FramerJS Layers. The order is important for methods like enabledDragAndDrop() and setDistance(), which affect the two layers differently. 
+`floatLayer` and `anchorLayer` are FramerJS Layers. The order is important for methods like enabledDragAndDrop() and setDistance().
 
 
 ## Methods

@@ -2,7 +2,7 @@
 
 Drag and drop layers. 
 
-![Example](https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif)
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
 
 ## Use
 

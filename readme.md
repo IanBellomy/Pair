@@ -4,7 +4,7 @@ Drag and drop layers.
 
 <img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
 
-## Useage
+## Usage
 
 Place the Pair.coffee file in the modules folder of your project.
 In your file, write:
@@ -171,5 +171,7 @@ destroy()
 ````
 Call this if the pair is no longer needed. It will go to sleep and all event listeners will be removed. 
 
+## Contact
+Twitter: @ianbellomy
 
 

@@ -80,7 +80,6 @@ dotTarget.onMouseOver ->
 			borderWidth:10
 	
 dotTarget.onMouseOut ->
-	print 'target out'
 	largeDot.animate
 		time:0.35
 		properties:

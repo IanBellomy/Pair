@@ -40,7 +40,7 @@ Once called, the floatLayer will become draggable, and the pair will emit the fo
 
 The handlers will be scoped to the Pair object. (i.e. `this` will refer to the Pair.)
 
-
+---
 ````coffeeScript
 
 onDragStart( (dragged)->  )
@@ -89,14 +89,14 @@ onDrop( (dropped,dropTarget)->  )
 When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
 
 
-
+---
 ````coffeescript
 disableDragAndDrop()
 ````
 Once called, the `floatLayer` will not be draggable, and any drag event listeners will be not be called. 
 
 
-
+---
 ````coffeescript
 onContactChange(startFn,endFn=->)  : returns index
 ````
@@ -104,14 +104,14 @@ Add an event listener for when the layers' _frames_ come into contact or leave c
 The function returns an index which can be used to remove the listeners later.
 
 
-
+---
 ````coffeescript
 offContactChange(index)
 ````
 Opposite of `onContactChange()` 
 
 
-
+---
 ````coffeescript
 onRangeChange(min,max,enterFn,exitFn=->)  : returns index
 ````
@@ -122,23 +122,21 @@ Distance is measured from the layers midpoints.
 The function returns an index which can be used to remove the listeners later.
 
 
-
+---
 ````coffeescript
 offRangeChange(index)
 ````
 Opposite of `onRangeChange()`
 
 
-
+---
 ````coffeescript
 getDistance()
 ````
 Returns the distance between the midpoints of `anchorLayer` and `floatLayer`.
 
 
-
-#### .setDistance(...)
-
+---
 ````coffeescript
 setDistance(value)
 ````
@@ -146,28 +144,28 @@ setDistance(value)
 Sets the distance between the two midpoints of `anchorLayer` and `floatLayer` by moving `floatLayer`. Maintains the angle between the two layers. 
 
 
-
+---
 ````coffeescript
 midPoint()  : returns [x,y]
 ````
 Returns the midpoint between the mindpoints of the `anchorLayer` and `floatLayer`.
 
 
-
+---
 ````coffeescript
 sleep()
 ````
 No drag events, range events, or collision events will be emitted.
 
 
-
+---
 ````coffeescript
 wake()
 ````
 Drag events, range events, and collision events will be emitted like normal.
 
 
-
+---
 ````coffeescript
 destroy()
 ````

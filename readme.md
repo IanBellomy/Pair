@@ -1,6 +1,7 @@
 # Pair.coffee
 
-Drag and drop layers and other things. 
+Drag and drop layers. 
+
 
 
 ## Use

@@ -33,7 +33,10 @@ largeDot.onMouseOver ->
 		properties: 
 			scale:1.2
 
-largeDot.onMouseOut ->
+largeDot.onMouseOut ->	
+	# this should need to be here but... webtech, ¯\_(ツ)_/¯
+	return if largeDot.ignoreEvents 		 
+	
 	@animate
 		time:0.25
 		properties:
@@ -68,6 +71,7 @@ dotTarget.onMouseOver ->
 			borderWidth:10
 	
 dotTarget.onMouseOut ->
+	print 'target out'
 	largeDot.animate
 		time:0.35
 		properties:
@@ -122,6 +126,9 @@ pair.onInvalidDrop (dropped)->
 			scale:0.25
 	
 pair.onDrop (dropped,dropTarget)->
+	dropTarget.ignoreEvents = true
+	dropped.ignoreEvents = true	
+		
 	dropped.animate
 		time:0.25
 		properties:
@@ -138,5 +145,4 @@ pair.onDrop (dropped,dropTarget)->
 			backgroundColor: "#ff9900"
 			scale:1
 			
-	dropTarget.style.pointerEvents = "none"
-	dropped.style.pointerEvents = "none"
+	

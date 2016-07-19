@@ -6,19 +6,22 @@ dotTarget = new Layer
 	height: 50
 	borderRadius: 76
 	backgroundColor: "black"
-	y: 231
+	y: 80
 	x: 67
 	scale:0.25
 
 largeDot = new Layer
 	width: 50
 	height: 50
-	y: 80
+	y: 231
 	x: 72
 	borderRadius: 100	
 	borderWidth: 5
 	borderColor: "black"
 	backgroundColor: "gray"
+
+largeDot.centerX()
+dotTarget.centerX()
 
 pair = new PairModule.Pair(largeDot,dotTarget)
 
@@ -27,16 +30,14 @@ pair.enableDragAndDrop()
 largeDot.onMouseOver ->
 	@animate
 		time:0.25
-		properties:
+		properties: 
 			scale:1.2
-			borderWidth:2
 
 largeDot.onMouseOut ->
 	@animate
 		time:0.25
 		properties:
 			scale:1		
-			borderWidth:5
 
 largeDot.onMouseDown ->
 	@animate
@@ -72,52 +73,55 @@ dotTarget.onMouseOut ->
 		properties:
 			borderWidth:5
 
-pair.on "dragStart", (dragged)->
+pair.onDragStart (dragged)->
 	dragged._startX = largeDot.x
 	dragged._startY = largeDot.y
 
-pair.on "dragEnter", (dragged,formerDropTarget)->
+pair.onDragEnter (dragged,dropTarget)->
 	dragged.animate
 		time:0.25
 		properties:
 			scale:0.8
+			borderWidth:10
 			
-	formerDropTarget.animate
+	dropTarget.animate
 		time:0.35
 		properties:
-			backgroundColor:dragged.backgroundColor
-			scale:1.1
+			borderWidth:5
+			borderColor:dragged.backgroundColor
+			scale:1.2
 
-pair.on "dragOver", ->
-	# nothing.
+pair.onDragOver ->
+	# ¯\_(ツ)_/¯
 	
-pair.on "dragLeave", (dragged,formerDropTarget)->
+pair.onDragLeave (dragged,formerDropTarget)->
 	dragged.animate
 		time:0.25
 		properties:
 			scale:1.1
 			opacity:1.0
+			borderWidth:5
 		
 	formerDropTarget.animate
 		time:0.35
 		properties:
-			backgroundColor:"black"
-			scale:1.0
+			borderWidth:0
+			scale:1
 	
 	
-pair.on "invalidDrop", (dropped)->	
+pair.onInvalidDrop (dropped)->	
 	dropped.animate
 		time:0.35
 		properties:
-			x:@floater._startX
-			y:@floater._startY
+			x:dropped._startX
+			y:dropped._startY
 	
-	@anchor.animate
+	dotTarget.animate
 		time:1
 		properties:
 			scale:0.25
 	
-pair.on "drop", (dropped,dropTarget)->
+pair.onDrop (dropped,dropTarget)->
 	dropped.animate
 		time:0.25
 		properties:
@@ -130,9 +134,9 @@ pair.on "drop", (dropped,dropTarget)->
 		time:0.35
 		properties:
 			borderWidth: 5
-			borderColor: "#ff9900"
-			backgroundColor: "gray"
-			scale:1.0
+			borderColor: "black"
+			backgroundColor: "#ff9900"
+			scale:1
 			
 	dropTarget.style.pointerEvents = "none"
 	dropped.style.pointerEvents = "none"

@@ -31,19 +31,65 @@ enableDragAndDrop()
 
 Once called, the floatLayer will become draggable, and the pair will emit the following events: 
 
-- `"dragEnter"`, when the cursor enters `anchorLayer` while `floatLayer` is being dragged.
-- `"dragLeave"`, when the cursor leaves `anchorLayer` while `floatLayer` is being dragged. 
-- `"dragOver"`, when the cursor moves within `anchorLayer` while `floatLayer` is being dragged.
-- `"drop"`, when the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
-- `"invalidDrop"`, when the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
-
-You can listen for events by using
-
-````coffeescript
-on(eventName, eventFunction)
-````
+- `"dragStart"`
+- `"dragEnter"`
+- `"dragLeave"` 
+- `"dragOver"`
+- `"drop"`
+- `"invalidDrop"`
 
 The handlers will be scoped to the Pair object. (i.e. `this` will refer to the Pair.)
+For more information see "Adding Event Handlers" below
+
+
+#### Adding Event Handlers
+
+````coffeeScript
+
+onDragStart( (dragged)->  )
+
+````
+When the mouse moves after pressing down on the `floatLayer`.
+
+
+````coffeeScript
+
+onDragEnter( (dragged,dropTarget)->  )
+
+````
+When the cursor enters `anchorLayer` while `floatLayer` is being dragged.
+
+
+````coffeeScript
+
+onDragOver( (dragged,dropTarget)->  )
+
+````
+When the cursor moves within `anchorLayer` while `floatLayer` is being dragged.
+
+
+````coffeeScript
+
+onDragLeave( (dragged,formerDropTarget)->  )
+
+````
+When the cursor leaves `anchorLayer` while `floatLayer` is being dragged. 
+
+
+````coffeeScript
+
+onInvalidDrop( (dropped)->  )
+
+````
+When the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
+
+
+````coffeeScript
+
+onDrop( (dropped,dropTarget)->  )
+
+````
+When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
 
 
 #### .disableDragAndDrop()

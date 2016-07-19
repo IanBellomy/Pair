@@ -103,7 +103,7 @@ class exports.Pair extends Framer.EventEmitter
 				if Pair.draggedItems.indexOf _floater isnt -1
 					@_validDragTarget = false
 					@emit "dragLeave", _floater, _anchor
-		
+				
 		#end private methods
 
 

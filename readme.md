@@ -17,7 +17,7 @@ In your file, write:
 	myPair = PairModule.Pair(floatLayer,anchorLayer)
 
 
-`floatLayer` and `anchorLayer` are FramerJS Layers. The order is important for methods like enabledDragAndDrop() and setDistance().
+`floatLayer` and `anchorLayer` are FramerJS Layers. `floatLayer` will be the draggable layer, `anchorLayer` will be the target.
 
 
 ## Methods

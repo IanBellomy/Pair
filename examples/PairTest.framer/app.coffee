@@ -1,3 +1,12 @@
+###	
+
+	https://github.com/IanBellomy/Pair
+	
+	— Ian Bellomy
+	
+###
+
+
 document.body.style.cursor = "default"
 PairModule = require "Pair"
 

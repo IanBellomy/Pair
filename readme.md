@@ -9,15 +9,18 @@ Drag and drop layers.
 Place the Pair.coffee file in the modules folder of your project.
 In your file, write:
 
-	PairModule = require "Pair"
-
+````coffeescript
+PairModule = require "Pair"
+````
 
 Create a pair and enable drag and drop
 
-	floatLayer = new Layer
-	anchorLayer = new Layer
-	myPair = PairModule.Pair(floatLayer,anchorLayer)
-	myPair.enableDragAndDrop()
+````coffeescript
+floatLayer = new Layer
+anchorLayer = new Layer
+myPair = PairModule.Pair(floatLayer,anchorLayer)
+myPair.enableDragAndDrop()
+````
 
 `floatLayer` and `anchorLayer` must be Layers with the same parent. `floatLayer` will be the draggable layer, `anchorLayer` will be the drag target.
 

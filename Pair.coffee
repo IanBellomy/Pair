@@ -10,7 +10,7 @@
 
 class exports.Pair extends Framer.EventEmitter
 
-	# state properties
+	# static properties
 
 	@draggedItems:[]		
 
@@ -103,7 +103,7 @@ class exports.Pair extends Framer.EventEmitter
 				if Pair.draggedItems.indexOf _floater isnt -1
 					@_validDragTarget = false
 					@emit "dragLeave", _floater, _anchor
-		
+				
 		#end private methods
 
 
@@ -151,9 +151,6 @@ class exports.Pair extends Framer.EventEmitter
 		oldYOffset = _floater.midY - _anchor.midY
 		newYOffset = oldYOffset * distanceDiffRatio
 		_floater.midY = _anchor.midY + newYOffset
-
-		# get x,y components
-		# calculate offset
 
 	
 	# the co-ordinates between the anchor and floater

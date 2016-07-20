@@ -46,50 +46,39 @@ Once called, the floatLayer will become draggable, and the pair will emit the fo
 The handlers will be scoped to the Pair object. (i.e. `this` will refer to the Pair.)
 
 ---
+##### event handling
 ````coffeeScript
-
 onDragStart( (dragged)->  )
-
 ````
-When the mouse moves after pressing down on the `floatLayer`.
+When the mouse moves after pressing down on the `floatLayer`.<br>
 
 
 ````coffeeScript
-
 onDragEnter( (dragged,dropTarget)->  )
-
 ````
 When the cursor enters `anchorLayer` while `floatLayer` is being dragged.
 
 
 ````coffeeScript
-
 onDragOver( (dragged,dropTarget)->  )
-
 ````
 When the cursor moves within `anchorLayer` while `floatLayer` is being dragged.
 
 
 ````coffeeScript
-
 onDragLeave( (dragged,formerDropTarget)->  )
-
 ````
 When the cursor leaves `anchorLayer` while `floatLayer` is being dragged. 
 
 
 ````coffeeScript
-
 onInvalidDrop( (dropped)->  )
-
 ````
 When the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
 
 
 ````coffeeScript
-
 onDrop( (dropped,dropTarget)->  )
-
 ````
 When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
 
@@ -106,7 +95,7 @@ Once called, the `floatLayer` will not be draggable, and any drag event listener
 onContactChange(startFn,endFn=->)  : returns index
 ````
 Add an event listener for when the layers' _frames_ come into contact or leave contact.
-The function returns an index which can be used to remove the listeners later.
+The function returns an index which can be used to remove the listener later.
 
 
 ---
@@ -122,9 +111,9 @@ onRangeChange(min,max,enterFn,exitFn=->)  : returns index
 ````
 Add event handlers for when the distance between layers enters a specific range. The range is defined by `min` and `max`. The `enterFn` function is called when distance becomes `<= max`, or `>= min`. Vice versa for the `exitFn`.
 
-Distance is measured from the layers midpoints.
+Distance is measured from the layers' midpoints.
 
-The function returns an index which can be used to remove the listeners later.
+The function returns an index which can be used to remove the listener later.
 
 
 ---

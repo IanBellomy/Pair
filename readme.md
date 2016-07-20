@@ -14,8 +14,8 @@ In your file, write:
 
 Create a pair and enable drag and drop
 
-        floatLayer = new Layer
-        anchorLayer = new Layer
+	floatLayer = new Layer
+	anchorLayer = new Layer
 	myPair = PairModule.Pair(floatLayer,anchorLayer)
 	myPair.enableDragAndDrop()
 

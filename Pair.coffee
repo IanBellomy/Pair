@@ -154,7 +154,6 @@ class exports.Pair extends Framer.EventEmitter
 
 	
 	# the co-ordinates between the anchor and floater
-	# FIXME!! In what space? Assuming they have the same parent!	
 	midpoint: ->
 		return [(_anchor.midX + _floater.midX)/2.0,(_anchor.midY + _floater.midY)/2.0]
 	
@@ -162,7 +161,7 @@ class exports.Pair extends Framer.EventEmitter
 	hitTest:->
 		r1 = _anchor
 		r2 = _floater
-		return not( r2.x > r1.x + r1.width or r2.x + r2.width < r1.x or r2.y > r1.y + r1.height or r2.y + r2.height < r1.y);
+		return !( r2.x > r1.x + r1.width or r2.x + r2.width < r1.x or r2.y > r1.y + r1.height or r2.y + r2.height < r1.y)
 
 
 	# what happens when there are other buttons?
@@ -214,7 +213,7 @@ class exports.Pair extends Framer.EventEmitter
 
 
 	#
-	#	Event Handler 
+	#	Event Handling
 	#
 
 	#returns an index
@@ -292,14 +291,3 @@ exports.makePairs = (float,anchors)->
 
 	return pairs
 
-
-### 
-
-TODO:
-
-	Cursor issue: Text carrot while dragging... 
-		not resolvable
-
-	Animating distance?
-
-###

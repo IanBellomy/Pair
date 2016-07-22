@@ -87,7 +87,7 @@ onInvalidDrop( (dropped)->  )
 ````
 When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
->*Notes*: 
+
 >`"invalidDrop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 > A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
 
@@ -96,7 +96,6 @@ onDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
->*Notes*: 
 >`"drop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 >A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
 
@@ -130,7 +129,6 @@ onContactChange(startFn,endFn=->)  : returns index
 Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
 
->*Notes*: 
 >Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
 >
 >Layers' scale and rotation does NOT affect a layers' frame! (This module does not perform pixel-based collision detection or geometric box collision detection.)
@@ -154,7 +152,6 @@ Distance is measured from the layers' midpoints.
 
 The function returns an index which can be used to remove the listener later.
 
->*Note*: 
 >Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
 
 ---

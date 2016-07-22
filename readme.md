@@ -89,7 +89,7 @@ When the mouse is released outside of the original `targetLayer` while `dropped`
 
 *NOTE*: `"invalidDrop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 
-*NOTE* A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
+*NOTE*: A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
 
 ````coffeeScript
 onDrop( (dropped,dropTarget)->  )
@@ -98,7 +98,7 @@ When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
 *NOTE*: `"drop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 
-*NOTE* A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
+*NOTE*: A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
 
 ````coffeeScript
 onContactDrop( (dropped,dropTarget)->  )

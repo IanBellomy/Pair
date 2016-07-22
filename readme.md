@@ -29,7 +29,7 @@ Create a pair and enable drag and drop
 ````coffeescript
 dragLayer = new Layer
 targetLayer = new Layer
-myPair = PairModule.Pair(dragLayer,targetLayer)
+myPair = new PairModule.Pair(dragLayer,targetLayer)
 myPair.enableDragAndDrop()
 ````
 

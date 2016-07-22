@@ -8,7 +8,7 @@ Cursor-based:
 
 Frame-based:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=308 height=260">
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=276 height=334">
 
 
 ## Usage

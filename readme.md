@@ -87,26 +87,33 @@ onInvalidDrop( (dropped)->  )
 ````
 When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
+*NOTE*: `"invalidDrop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
+
+*NOTE* A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
 
 ````coffeeScript
 onDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
+*NOTE*: `"drop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 
+*NOTE* A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
 
 ````coffeeScript
 onContactDrop( (dropped,dropTarget)->  )
 ````
-When the mouse is released while the `dropTarget` frame overlaps the `dropped` frame.
-This event is emitted _after_ "drop" and "invalidDrop"
+When the mouse is released while the `dropped` layer frame overlaps the `dropTarget` layer frame.
+
+This event is emitted _after_ `"drop"` and `"invalidDrop"`
 
 
 ````coffeeScript
-onInvalidContactDrop( (dropped,dropTarget)->  )
+onInvalidContactDrop( (dropped)->  )
 ````
-When the mouse is released while the `dropTarget` frame does not overlap the `dropped` frame.
-This event is emitted _after_ "drop" and "invalidDrop"
+When the mouse is released while the `dropped` layer frame does not overlap the `dropTarget` frame.
+
+This event is emitted _after_ `"drop"` and `"invalidDrop"`
 
 
 ---

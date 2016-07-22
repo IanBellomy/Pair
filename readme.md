@@ -129,7 +129,7 @@ onContactChange(startFn,endFn=->)  : returns index
 Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
 
->Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
+>These handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
 >
 >Layers' scale and rotation does NOT affect a layers' frame! (This module does not perform pixel-based collision detection or geometric box collision detection.)
 

@@ -3,12 +3,13 @@
 #####Drag and drop layers. 
 
 Cursor-based:
-
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" wid=308 height=260">
 
 Frame-based:
-
 <img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=276 height=334">
+
+Frame-based contact events without dragging:
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactEvent.gif" width=276 height=334">
 
 
 ## Usage

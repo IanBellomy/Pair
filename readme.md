@@ -56,6 +56,12 @@ Once called, the `dragLayer` will become draggable, and the pair will emit the f
 
 The handlers will be scoped to the Pair object. (i.e. `this` will refer to the Pair.)
 
+Note, the following events are *always* emitted unless the pair is put to sleep.
+
+- `"contactDrop"`
+- `"invalidContactDrop"`
+
+
 ---
 ##### event handling
 ````coffeeScript
@@ -152,13 +158,13 @@ Distance is measured from the layers' midpoints.
 
 The function returns an index which can be used to remove the listener later.
 
->Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
+>These handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
 
 ---
 ````coffeescript
 offRangeChange(index)
 ````
-Opposite of `onRangeChange()`
+Opposite of `onRangeChange()`.
 
 
 ---

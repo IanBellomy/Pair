@@ -70,7 +70,6 @@ pair.onDragStart (dragged)->
 	dragged._startY = floatBlock.y
 
 contactStartHandler = (floater,anchor)->
-	print 'start'
 	floater.animate
 		time:0.35
 		properties:
@@ -83,7 +82,6 @@ contactStartHandler = (floater,anchor)->
 			
 			
 contactEndHandler = (floater,anchor)->	
-	print 'end'
 	floater.animate
 		time:0.35
 		properties:

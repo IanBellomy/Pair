@@ -128,13 +128,13 @@ class exports.Pair extends Framer.EventEmitter
 
 		if @hitTest()
 			for _tempListener in _collisionListeners
-				_tempListener.contact++ || _tempListener.contactStart(_anchor,_floater)
+				_tempListener.contact++ || _tempListener.contactStart(_floater,_anchor)
 				
 		else
 			for _tempListener in _collisionListeners
 				if(_tempListener.contact)
 					_tempListener.contact = false
-					_tempListener.contactEnd(_anchor,_floater)
+					_tempListener.contactEnd(_floater,_anchor)
 
 
 			

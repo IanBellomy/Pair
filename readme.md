@@ -87,18 +87,18 @@ onInvalidDrop( (dropped)->  )
 ````
 When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
-*NOTE*: `"invalidDrop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
+*Note*: `"invalidDrop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 
-*NOTE*: A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
+*Note*: A Pair may emit an `"invalidDrop"` event *and* a `"contactDrop"` or `"invalidContactDrop"`.
 
 ````coffeeScript
 onDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
-*NOTE*: `"drop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
+*Note*: `"drop"` events are emitted before `"invalidContactDrop"` or `"contactDrop"` events.
 
-*NOTE*: A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
+*Note*: A Pair may emit *both* a `"drop"` and `"contactDrop"` events.
 
 ````coffeeScript
 onContactDrop( (dropped,dropTarget)->  )
@@ -130,9 +130,9 @@ onContactChange(startFn,endFn=->)  : returns index
 Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
 
-*NOTE*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
+*Note*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
 
-*NOTE*: Layers' scale and rotation does NOT affect a layers' frame! (This module does not perform pixel-based collision detection or geometric box collision detection.)
+*Note*: Layers' scale and rotation does NOT affect a layers' frame! (This module does not perform pixel-based collision detection or geometric box collision detection.)
 
 
 
@@ -153,7 +153,7 @@ Distance is measured from the layers' midpoints.
 
 The function returns an index which can be used to remove the listener later.
 
-*NOTE*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
+*Note*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
 
 ---
 ````coffeescript

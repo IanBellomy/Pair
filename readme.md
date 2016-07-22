@@ -2,7 +2,14 @@
 
 Drag and drop layers. 
 
+Cursor-based:
+
 <img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
+
+Frame-based:
+
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=308 height=260">
+
 
 ## Usage
 

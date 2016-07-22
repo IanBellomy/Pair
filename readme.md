@@ -20,18 +20,18 @@ Frame-based contact events without dragging:
 Place the Pair.coffee file in the modules folder of your project.
 In your file, write:
 
-\`\`\`\`coffeescript
+````coffeescript
 PairModule = require "Pair"
-\`\`\`\`
+````
 
 Create a pair and enable drag and drop
 
-\`\`\`\`coffeescript
+````coffeescript
 dragLayer = new Layer
 targetLayer = new Layer
 myPair = PairModule.Pair(dragLayer,targetLayer)
 myPair.enableDragAndDrop()
-\`\`\`\`
+````
 
 `dragLayer` and `targetLayer` must be Layers with the same parent. `dragLayer` will be the draggable layer, `targetLayer` will be the drag target.
 
@@ -41,9 +41,9 @@ myPair.enableDragAndDrop()
 In order of importance. 
 
 
-\`\`\`\`coffeescript
+````coffeescript
 enableDragAndDrop()
-\`\`\`\`
+````
 
 Once called, the `dragLayer` will become draggable, and the pair will emit the following events: 
 
@@ -58,68 +58,68 @@ The handlers will be scoped to the Pair object. (i.e. `this` will refer to the P
 
 ---
 ##### event handling
-\`\`\`\`coffeeScript
+````coffeeScript
 onDragStart( (dragged)-\>  )
-\`\`\`\`
+````
 When the mouse moves after pressing down on the `dragged`.<br>
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onDragEnter( (dragged,dropTarget)-\>  )
-\`\`\`\`
+````
 When the cursor enters `dropTarget` while `dragged` is being dragged.
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onDragOver( (dragged,dropTarget)-\>  )
-\`\`\`\`
+````
 When the cursor moves within `dropTarget` while `dragged` is being dragged.
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onDragLeave( (dragged,formerDropTarget)-\>  )
-\`\`\`\`
+````
 When the cursor leaves `formerDropTarget` while `dragged` is being dragged. 
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onInvalidDrop( (dropped)-\>  )
-\`\`\`\`
+````
 When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onDrop( (dropped,dropTarget)-\>  )
-\`\`\`\`
+````
 When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onContactDrop( (dropped,dropTarget)-\>  )
-\`\`\`\`
+````
 When the mouse is released while the `dropTarget` frame overlaps the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
 
 
-\`\`\`\`coffeeScript
+````coffeeScript
 onInvalidContactDrop( (dropped,dropTarget)-\>  )
-\`\`\`\`
+````
 When the mouse is released while the `dropTarget` frame does not overlap the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 disableDragAndDrop()
-\`\`\`\`
+````
 Once called, the `dragLayer` will not be draggable, and any drag event listeners will be not be called. 
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 onContactChange(startFn,endFn=-\>)  : returns index
-\`\`\`\`
+````
 Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
 
@@ -130,16 +130,16 @@ The function returns an index which can be used to remove the listener later.
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 offContactChange(index)
-\`\`\`\`
+````
 Opposite of `onContactChange()` 
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 onRangeChange(min,max,enterFn,exitFn=-\>)  : returns index
-\`\`\`\`
+````
 Add event handlers for when the distance between layers enters a specific range. The range is defined by `min` and `max`. The `enterFn` function is called when distance becomes `<= max`, or `>= min`. Vice versa for the `exitFn`.
 
 Distance is measured from the layers' midpoints.
@@ -149,52 +149,52 @@ The function returns an index which can be used to remove the listener later.
 *NOTE*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 offRangeChange(index)
-\`\`\`\`
+````
 Opposite of `onRangeChange()`
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 getDistance()
-\`\`\`\`
+````
 Returns the distance between the midpoints of `dragLayer` and `targetLayer`.
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 setDistance(value)
-\`\`\`\`
+````
 
 Sets the distance between the two midpoints of `dragLayer` and `targetLayer` by moving `targetLayer`. Maintains the angle between the two layers. 
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 midPoint()  : returns [x,y]
-\`\`\`\`
+````
 Returns the midpoint between the mindpoints of the `dragLayer` and `targetLayer`.
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 sleep()
-\`\`\`\`
+````
 No drag events, range events, or collision events will be emitted.
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 wake()
-\`\`\`\`
+````
 Drag events, range events, and collision events will be emitted like normal.
 
 
 ---
-\`\`\`\`coffeescript
+````coffeescript
 destroy()
-\`\`\`\`
+````
 Call this if the pair is no longer needed. It will go to sleep and all event listeners will be removed. 
 
 ## Contact

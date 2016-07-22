@@ -83,6 +83,26 @@ onDrop( (dropped,dropTarget)->  )
 When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
 
 
+````coffeeScript
+onInvalidDrop( (dropped)->  )
+````
+When the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
+
+
+````coffeeScript
+onContactDrop( (dropped,dropTarget)->  )
+````
+When the mouse is released while the `anchorLayer` frame overlaps the `floatLayer` frame.
+This event is emitted _after_ "drop" and "invalidDrop"
+
+
+````coffeeScript
+onInvalidContactDrop( (dropped,dropTarget)->  )
+````
+When the mouse is released while the `anchorLayer` frame does not overlap the `floatLayer` frame.
+This event is emitted _after_ "drop" and "invalidDrop"
+
+
 ---
 ````coffeescript
 disableDragAndDrop()
@@ -94,8 +114,13 @@ Once called, the `floatLayer` will not be draggable, and any drag event listener
 ````coffeescript
 onContactChange(startFn,endFn=->)  : returns index
 ````
-Add an event listener for when the layers' _frames_ come into contact or leave contact.
+Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
+
+*NOTE*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged.
+
+*NOTE*: Layers' scale and rotation does NOT affect a layers' frame! (This module does not perform pixel-based collision detection or geometric box collision detection.)
+
 
 
 ---
@@ -115,6 +140,7 @@ Distance is measured from the layers' midpoints.
 
 The function returns an index which can be used to remove the listener later.
 
+*NOTE*: Handlers will be called regardless of whether drag and drop is enabled, and regardless of whether a layer is dragged
 
 ---
 ````coffeescript

@@ -92,6 +92,12 @@ class exports.Pair extends Framer.EventEmitter
 			else			
 				@emit "invalidDrop", _floater
 
+			if @hitTest()
+				@emit "contactDrop", _floater, _anchor
+			else 
+				@emit "invalidContactDrop", _floater
+
+
 		@anchorMouseOver = (event,layer)=>
 			if @_dragging  
 				if Pair.draggedItems.indexOf _floater isnt -1
@@ -277,6 +283,11 @@ class exports.Pair extends Framer.EventEmitter
 	onDrop: (fn)->
 		@on "drop", fn
 
+	onContactDrop: (fn)->
+		@on "contactDrop", fn
+
+	onInvalidContactDrop: (fn)->
+		@on "invalidContactDrop", fn
 
 ### 
 

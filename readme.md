@@ -83,11 +83,6 @@ onDrop( (dropped,dropTarget)->  )
 When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
 
 
-````coffeeScript
-onInvalidDrop( (dropped)->  )
-````
-When the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
-
 
 ````coffeeScript
 onContactDrop( (dropped,dropTarget)->  )

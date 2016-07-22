@@ -12,7 +12,7 @@ Frame-based:
 
 Frame-based contact events without dragging:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactEvent.gif" width=229 height=384">
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactEvent.gif" width=229 height=381">
 
 
 ## Usage
@@ -27,13 +27,13 @@ PairModule = require "Pair"
 Create a pair and enable drag and drop
 
 \`\`\`\`coffeescript
-floatLayer = new Layer
-anchorLayer = new Layer
-myPair = PairModule.Pair(floatLayer,anchorLayer)
+dragLayer = new Layer
+targetLayer = new Layer
+myPair = PairModule.Pair(dragLayer,targetLayer)
 myPair.enableDragAndDrop()
 \`\`\`\`
 
-`floatLayer` and `anchorLayer` must be Layers with the same parent. `floatLayer` will be the draggable layer, `anchorLayer` will be the drag target.
+`dragLayer` and `targetLayer` must be Layers with the same parent. `dragLayer` will be the draggable layer, `targetLayer` will be the drag target.
 
 
 
@@ -45,7 +45,7 @@ In order of importance.
 enableDragAndDrop()
 \`\`\`\`
 
-Once called, the floatLayer will become draggable, and the pair will emit the following events: 
+Once called, the `dragLayer` will become draggable, and the pair will emit the following events: 
 
 - `"dragStart"`
 - `"dragEnter"`
@@ -61,51 +61,51 @@ The handlers will be scoped to the Pair object. (i.e. `this` will refer to the P
 \`\`\`\`coffeeScript
 onDragStart( (dragged)-\>  )
 \`\`\`\`
-When the mouse moves after pressing down on the `floatLayer`.<br>
+When the mouse moves after pressing down on the `dragged`.<br>
 
 
 \`\`\`\`coffeeScript
 onDragEnter( (dragged,dropTarget)-\>  )
 \`\`\`\`
-When the cursor enters `anchorLayer` while `floatLayer` is being dragged.
+When the cursor enters `dropTarget` while `dragged` is being dragged.
 
 
 \`\`\`\`coffeeScript
 onDragOver( (dragged,dropTarget)-\>  )
 \`\`\`\`
-When the cursor moves within `anchorLayer` while `floatLayer` is being dragged.
+When the cursor moves within `dropTarget` while `dragged` is being dragged.
 
 
 \`\`\`\`coffeeScript
 onDragLeave( (dragged,formerDropTarget)-\>  )
 \`\`\`\`
-When the cursor leaves `anchorLayer` while `floatLayer` is being dragged. 
+When the cursor leaves `formerDropTarget` while `dragged` is being dragged. 
 
 
 \`\`\`\`coffeeScript
 onInvalidDrop( (dropped)-\>  )
 \`\`\`\`
-When the mouse is released outside of `anchorLayer` while `floatLayer` is being dragged.
+When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
 
 \`\`\`\`coffeeScript
 onDrop( (dropped,dropTarget)-\>  )
 \`\`\`\`
-When the mouse is released over `anchorLayer` while `floatLayer` is being dragged.
+When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
 
 
 \`\`\`\`coffeeScript
 onContactDrop( (dropped,dropTarget)-\>  )
 \`\`\`\`
-When the mouse is released while the `anchorLayer` frame overlaps the `floatLayer` frame.
+When the mouse is released while the `dropTarget` frame overlaps the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
 
 
 \`\`\`\`coffeeScript
 onInvalidContactDrop( (dropped,dropTarget)-\>  )
 \`\`\`\`
-When the mouse is released while the `anchorLayer` frame does not overlap the `floatLayer` frame.
+When the mouse is released while the `dropTarget` frame does not overlap the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
 
 
@@ -113,7 +113,7 @@ This event is emitted _after_ "drop" and "invalidDrop"
 \`\`\`\`coffeescript
 disableDragAndDrop()
 \`\`\`\`
-Once called, the `floatLayer` will not be draggable, and any drag event listeners will be not be called. 
+Once called, the `dragLayer` will not be draggable, and any drag event listeners will be not be called. 
 
 
 ---
@@ -159,7 +159,7 @@ Opposite of `onRangeChange()`
 \`\`\`\`coffeescript
 getDistance()
 \`\`\`\`
-Returns the distance between the midpoints of `anchorLayer` and `floatLayer`.
+Returns the distance between the midpoints of `dragLayer` and `targetLayer`.
 
 
 ---
@@ -167,14 +167,14 @@ Returns the distance between the midpoints of `anchorLayer` and `floatLayer`.
 setDistance(value)
 \`\`\`\`
 
-Sets the distance between the two midpoints of `anchorLayer` and `floatLayer` by moving `floatLayer`. Maintains the angle between the two layers. 
+Sets the distance between the two midpoints of `dragLayer` and `targetLayer` by moving `targetLayer`. Maintains the angle between the two layers. 
 
 
 ---
 \`\`\`\`coffeescript
 midPoint()  : returns [x,y]
 \`\`\`\`
-Returns the midpoint between the mindpoints of the `anchorLayer` and `floatLayer`.
+Returns the midpoint between the mindpoints of the `dragLayer` and `targetLayer`.
 
 
 ---

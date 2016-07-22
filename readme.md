@@ -59,51 +59,51 @@ The handlers will be scoped to the Pair object. (i.e. `this` will refer to the P
 ---
 ##### event handling
 ````coffeeScript
-onDragStart( (dragged)-\>  )
+onDragStart( (dragged)->  )
 ````
 When the mouse moves after pressing down on the `dragged`.<br>
 
 
 ````coffeeScript
-onDragEnter( (dragged,dropTarget)-\>  )
+onDragEnter( (dragged,dropTarget)->  )
 ````
 When the cursor enters `dropTarget` while `dragged` is being dragged.
 
 
 ````coffeeScript
-onDragOver( (dragged,dropTarget)-\>  )
+onDragOver( (dragged,dropTarget)->  )
 ````
 When the cursor moves within `dropTarget` while `dragged` is being dragged.
 
 
 ````coffeeScript
-onDragLeave( (dragged,formerDropTarget)-\>  )
+onDragLeave( (dragged,formerDropTarget)->  )
 ````
 When the cursor leaves `formerDropTarget` while `dragged` is being dragged. 
 
 
 ````coffeeScript
-onInvalidDrop( (dropped)-\>  )
+onInvalidDrop( (dropped)->  )
 ````
 When the mouse is released outside of the original `targetLayer` while `dropped` was being dragged.
 
 
 ````coffeeScript
-onDrop( (dropped,dropTarget)-\>  )
+onDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released over `dropTarget` while `dropped` is being dragged.
 
 
 
 ````coffeeScript
-onContactDrop( (dropped,dropTarget)-\>  )
+onContactDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released while the `dropTarget` frame overlaps the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
 
 
 ````coffeeScript
-onInvalidContactDrop( (dropped,dropTarget)-\>  )
+onInvalidContactDrop( (dropped,dropTarget)->  )
 ````
 When the mouse is released while the `dropTarget` frame does not overlap the `dropped` frame.
 This event is emitted _after_ "drop" and "invalidDrop"
@@ -118,7 +118,7 @@ Once called, the `dragLayer` will not be draggable, and any drag event listeners
 
 ---
 ````coffeescript
-onContactChange(startFn,endFn=-\>)  : returns index
+onContactChange(startFn,endFn=->)  : returns index
 ````
 Add an event listener for when the layers' _frames_ contact starts or ends.
 The function returns an index which can be used to remove the listener later.
@@ -138,7 +138,7 @@ Opposite of `onContactChange()`
 
 ---
 ````coffeescript
-onRangeChange(min,max,enterFn,exitFn=-\>)  : returns index
+onRangeChange(min,max,enterFn,exitFn=->)  : returns index
 ````
 Add event handlers for when the distance between layers enters a specific range. The range is defined by `min` and `max`. The `enterFn` function is called when distance becomes `<= max`, or `>= min`. Vice versa for the `exitFn`.
 

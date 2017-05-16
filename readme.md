@@ -4,15 +4,15 @@
 
 Cursor-based:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
+<img alt="cursor based example" src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
 
 Frame-based:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=276 height=334">
+<img alt="frame based example" src="https://github.com/IanBellomy/Pair/blob/master/examples/contactDrop.gif" width=276 height=334">
 
 Frame-based contact events without dragging:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/contactEvent.gif" width=229 height=381">
+<img alt="frame based events with no dragging" src="https://github.com/IanBellomy/Pair/blob/master/examples/contactEvent.gif" width=229 height=381">
 
 
 ## Usage

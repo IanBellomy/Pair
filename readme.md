@@ -4,7 +4,7 @@
 
 Cursor-based:
 
-<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" wid=308 height=260">
+<img src="https://github.com/IanBellomy/Pair/blob/master/examples/DragAndDropFramer.gif" width=308 height=260">
 
 Frame-based:
 

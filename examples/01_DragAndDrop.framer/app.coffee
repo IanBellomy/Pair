@@ -43,7 +43,7 @@ largeDot.onMouseOver ->
 		scale:1.2
 
 largeDot.onMouseOut ->	
-	# this should need to be here but... webtech, ¯\_(ツ)_/¯
+	# this shouldn't need to be here but... webtech, ¯\_(ツ)_/¯
 	return if largeDot.ignoreEvents 		 
 	
 	@animate

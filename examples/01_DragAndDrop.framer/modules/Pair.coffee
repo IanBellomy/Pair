@@ -98,6 +98,7 @@ class exports.Pair extends Framer.EventEmitter
 			@_dragging = false			
 			index = Pair.draggedItems.indexOf @_floater
 			Pair.draggedItems.splice(index,1)
+			@_floater.style.cursor = "-webkit-grab"
 			if @_validDragTarget				
 				@emit "drop", @_floater, @_anchor
 				@_validDragTarget = false

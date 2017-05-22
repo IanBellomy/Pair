@@ -44,6 +44,8 @@ class exports.Pair extends Framer.EventEmitter
 		@_tempRange 			= undefined
 		@_contained 			= false
 		@_tempListener 			= {}		
+		@_px					= 0
+		@_py 					= 0
 		@_dSquared = @getDistanceSquared()
 		
 		# We want these event handler methods to be scoped to the Pair instance when they run, so they're here
@@ -51,9 +53,10 @@ class exports.Pair extends Framer.EventEmitter
 			@_pauseEvent(event)
 			@_floater.style.cursor = "-webkit-grabbing"
 		
-		@_floatMouseUp = (event,layer)=>
+		@_floatMouseUp = (event,layer)=>			
 			@_pauseEvent(event)
-			@_floater.style.cursor = "-webkit-grab"
+			# @_floater.style.cursor = "wait"
+			# @_floater.style.cursor = "-webkit-grab"
 			
 		@_floatOver = (event,layer) =>			
 			@_pauseEvent(event)
@@ -73,6 +76,8 @@ class exports.Pair extends Framer.EventEmitter
 		@_dragHandler=(event) =>
 			@_pauseEvent(event)			
 			@_floater.visible = false
+			@_px = event.clientX
+			@_py = event.clientY
 			nodeUnderneath = document.elementFromPoint(event.clientX, event.clientY)
 			@_floater.visible = true
 			isNowOverAnchor = @_anchor._element.contains(nodeUnderneath)			
@@ -163,8 +168,16 @@ class exports.Pair extends Framer.EventEmitter
 				if(@_tempListener.contact)
 					@_tempListener.contact = false
 					@_tempListener.contactEnd(@_floater,@_anchor)
-
+		
+		# nodeUnderneath = document.elementFromPoint(@_px, @_py)
+		# if !@_floater._element.contains(nodeUnderneath) and @_dragging
+		# 	print @_dragging
 			
+		# 	# Framer.Device.screen.style.cursor = "wait"
+		# 	print "out"
+		# else
+		# 	print "in"			
+		# requestAnimationFrame(@loopListener)
 	
 	getDistance: ->
 		return Math.sqrt((@_floater.midX-@_anchor.midX)**2 + (@_floater.midY-@_anchor.midY)**2)
@@ -233,7 +246,10 @@ class exports.Pair extends Framer.EventEmitter
 		# disable drag and drop, remember what the state was
 
 	wake:->
+		# requestAnimationFrame(@loopListener)
+
 		Framer.Loop.on "update", @loopListener
+
 		# update contact properties of listeners?
 		# enabled drag and drop if this was active before
 

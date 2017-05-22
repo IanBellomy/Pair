@@ -38,119 +38,119 @@ pair.enableDragAndDrop()
 
 largeDot.onMouseOver ->
 	@animate
-		time:0.25
-		properties: 
-			scale:1.2
+		options:
+			time:0.25
+		scale:1.2
 
 largeDot.onMouseOut ->	
 	# this should need to be here but... webtech, ¯\_(ツ)_/¯
 	return if largeDot.ignoreEvents 		 
 	
 	@animate
-		time:0.25
-		properties:
-			scale:1		
+		options:
+			time:0.25		
+		scale:1		
 
 largeDot.onMouseDown ->
 	@animate
-		time:0.25
-		properties:
-			backgroundColor: "#ff9900"
+		options:
+			time:0.25		
+		backgroundColor: "#ff9900"
 			
 	dotTarget.animate
-		time:0.45
-		properties:
-			scale: 1.0
+		options:
+			time:0.45	
+		scale: 1.0
 
 largeDot.onMouseUp ->
 	@animate
-		time:0.5
-		properties:
-			backgroundColor: "gray"
+		options:
+			time:0.5	
+		backgroundColor: "gray"
 
 	dotTarget.animate
-		time:0.45
-		properties:
-			scale: 0.25
+		options:
+			time:0.45	
+		scale: 0.25
 
 dotTarget.onMouseOver ->
 	largeDot.animate
-		time:0.35
-		properties:
-			borderWidth:10
+		options:
+			time:0.35	
+		borderWidth:10
 	
 dotTarget.onMouseOut ->
 	largeDot.animate
-		time:0.35
-		properties:
-			borderWidth:5
+		options:
+			time:0.35	
+		borderWidth:5
 
 pair.onDragStart (dragged)->
-	dragged._startX = largeDot.x
-	dragged._startY = largeDot.y
+	dragged._startX = dragged.x
+	dragged._startY = dragged.y
 
 pair.onDragEnter (dragged,dropTarget)->
 	dragged.animate
-		time:0.25
-		properties:
-			scale:0.8
-			borderWidth:10
+		options:
+			time:0.25
+		scale:0.8
+		borderWidth:10
 			
 	dropTarget.animate
-		time:0.35
-		properties:
-			borderWidth:5
-			borderColor:dragged.backgroundColor
-			scale:1.2
+		options:
+			time:0.35
+		borderWidth:5
+		borderColor:dragged.backgroundColor
+		scale:1.2
 
 pair.onDragOver ->
 	# ¯\_(ツ)_/¯
 	
 pair.onDragLeave (dragged,formerDropTarget)->
 	dragged.animate
-		time:0.25
-		properties:
-			scale:1.1
-			opacity:1.0
-			borderWidth:5
+		options:
+			time:0.25		
+		scale:1.1
+		opacity:1.0
+		borderWidth:5
 		
 	formerDropTarget.animate
-		time:0.35
-		properties:
-			borderWidth:0
-			scale:1
+		options:
+			time:0.35		
+		borderWidth:0
+		scale:1
 	
 	
 pair.onInvalidDrop (dropped)->	
 	dropped.animate
-		time:0.35
-		properties:
-			x:dropped._startX
-			y:dropped._startY
+		options:
+			time:0.35		
+		x:dropped._startX
+		y:dropped._startY
 	
 	dotTarget.animate
-		time:1
-		properties:
-			scale:0.25
+		options:
+			time:1		
+		scale:0.25
 	
 pair.onDrop (dropped,dropTarget)->
 	dropTarget.ignoreEvents = true
 	dropped.ignoreEvents = true	
 		
 	dropped.animate
-		time:0.25
-		properties:
-			scale: 0
-			midX:dropTarget.midX
-			midY:dropTarget.midY
-			opacity:0
+		options:
+			time:0.25		
+		scale: 0
+		midX:dropTarget.midX
+		midY:dropTarget.midY
+		opacity:0
 			
 	dropTarget.animate
-		time:0.35
-		properties:
-			borderWidth: 5
-			borderColor: "black"
-			backgroundColor: "#ff9900"
-			scale:1
+		options:
+			time:0.35		
+		borderWidth: 5
+		borderColor: "black"
+		backgroundColor: "#ff9900"
+		scale:1
 			
 	

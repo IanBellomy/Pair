@@ -20,7 +20,7 @@ onDragBegin = ->
 			time:0.35
 	
 	
-onDragEnter = (dragged,dropTarget)->
+onDragEnter = (dragged,dropTarget)->	
 	dropTarget.borderWidth = 6
 	
 onDragLeave = (dragged,dropTarget)->	

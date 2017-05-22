@@ -55,8 +55,7 @@ class exports.Pair extends Framer.EventEmitter
 		
 		@_floatMouseUp = (event,layer)=>			
 			@_pauseEvent(event)
-			# @_floater.style.cursor = "wait"
-			# @_floater.style.cursor = "-webkit-grab"
+			@_floater.style.cursor = "-webkit-grab"
 			
 		@_floatOver = (event,layer) =>			
 			@_pauseEvent(event)

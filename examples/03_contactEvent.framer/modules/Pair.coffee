@@ -12,8 +12,7 @@ class exports.Pair extends Framer.EventEmitter
 
 	# static properties
 
-	@draggedItems:[]		
-	
+	@draggedItems:[]			
 
 	constructor: (@_floater, @_anchor) ->		
 
@@ -38,6 +37,7 @@ class exports.Pair extends Framer.EventEmitter
 		@_dragging 				= false
 		@_validDragTarget 		= false			# are we over any valid anchor / drop target
 		@_previousCursor 		= @_floater.style.cursor
+		@useHandCursor			= true
 		@_previousDraggability 	= false
 		@_rangeListeners 		= []		
 		@_collisionListeners 	= []	
@@ -51,11 +51,11 @@ class exports.Pair extends Framer.EventEmitter
 		# We want these event handler methods to be scoped to the Pair instance when they run, so they're here
 		@_floatMouseDown = (event,layer)=>
 			@_pauseEvent(event)
-			@_floater.style.cursor = "-webkit-grabbing"
+			if @useHandCursor then @_floater.style.cursor = "-webkit-grabbing"
 		
 		@_floatMouseUp = (event,layer)=>			
 			@_pauseEvent(event)
-			@_floater.style.cursor = "-webkit-grab"
+			if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 			
 		@_floatOver = (event,layer) =>			
 			@_pauseEvent(event)
@@ -97,7 +97,7 @@ class exports.Pair extends Framer.EventEmitter
 			@_dragging = false			
 			index = Pair.draggedItems.indexOf @_floater
 			Pair.draggedItems.splice(index,1)
-			@_floater.style.cursor = "-webkit-grab"
+			if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 			if @_validDragTarget				
 				@emit "drop", @_floater, @_anchor
 				@_validDragTarget = false
@@ -169,14 +169,7 @@ class exports.Pair extends Framer.EventEmitter
 					@_tempListener.contact = false
 					@_tempListener.contactEnd(@_floater,@_anchor)
 		
-		# nodeUnderneath = document.elementFromPoint(@_px, @_py)
-		# if !@_floater._element.contains(nodeUnderneath) and @_dragging
-		# 	print @_dragging
-			
-		# 	# Framer.Device.screen.style.cursor = "wait"
-		# 	print "out"
-		# else
-		# 	print "in"			
+		
 		# requestAnimationFrame(@loopListener)
 	
 	getDistance: ->
@@ -212,7 +205,7 @@ class exports.Pair extends Framer.EventEmitter
 		@_previousDraggability = @_floater.draggable.enabled # FIXME: Bug in framer makes this return true if accessed!
 		@_floater.draggable.enabled = true
 		@_previousCursor = @_floater.style.cursor
-		@_floater.style.cursor = "-webkit-grab"
+		if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 		@_hoveredNode = undefined
 		@_anchorPreviouslyIgnoredEvents = @_anchor.ignoreEvents
 		@_anchor.ignoreEvents = false
@@ -229,7 +222,7 @@ class exports.Pair extends Framer.EventEmitter
 		@_dragging = false	
 		@_dragAndDropEnabled = false		
 		@_floater.draggable.enabled = false # @_previousDraggability # Doesn't work because bug in framer
-		@_floater.style.cursor = @_previousCursor
+		if @useHandCursor then @_floater.style.cursor = @_previousCursor
 		@_anchor.ignoreEvents = @_anchorPreviouslyIgnoredEvents
 
 		@_floater.off Events.MouseDown, @_floatMouseDown

@@ -8,6 +8,8 @@
 	
 ###
 
+
+
 class exports.Pair extends Framer.EventEmitter
 
 	# static properties
@@ -15,6 +17,9 @@ class exports.Pair extends Framer.EventEmitter
 	@draggedItems:[]			
 
 	constructor: (@_floater, @_anchor) ->		
+		
+		if Framer.Version.date < 1499243282	
+			throw new TypeError("Pair Module requires Framer Library update")
 
 		# validate
 		if !(@_floater instanceof Framer.Layer)
@@ -66,18 +71,18 @@ class exports.Pair extends Framer.EventEmitter
 			@_dragging = true
 			Pair.draggedItems.push @_floater
 			# @_floater.style.pointerEvents = "none"
-			@_floater.visible = false
-			@_hoveredNode = document.elementFromPoint(event.clientX, event.clientY)			
+			@_floater.visible = false			
+			@_hoveredNode = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
 			@_isOverAnchor = @_anchor._element.contains(@_hoveredNode)
 			@_floater.visible = true
 			@emit "dragStart", @_floater
 	
 		@_dragHandler=(event) =>
 			@_pauseEvent(event)			
-			@_floater.visible = false
-			@_px = event.clientX
-			@_py = event.clientY
-			nodeUnderneath = document.elementFromPoint(event.clientX, event.clientY)
+			@_floater.visible = false			
+			@_px = event.contextPoint.x
+			@_py = event.contextPoint.y
+			nodeUnderneath = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
 			@_floater.visible = true
 			isNowOverAnchor = @_anchor._element.contains(nodeUnderneath)			
 			if isNowOverAnchor and not @_isOverAnchor

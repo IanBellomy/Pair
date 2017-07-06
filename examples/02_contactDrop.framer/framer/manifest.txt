@@ -1,11 +1,13 @@
 app.coffee
 framer/coffee-script.js
 framer/config.json
+framer/design.vekter
 framer/framer.generated.js
 framer/framer.init.js
 framer/framer.js
 framer/framer.js.map
 framer/framer.modules.js
+framer/framer.vekter.js
 framer/images/cursor-active.png
 framer/images/cursor-active@2x.png
 framer/images/cursor.png
@@ -15,6 +17,7 @@ framer/images/icon-152.png
 framer/images/icon-180.png
 framer/images/icon-192.png
 framer/images/icon-76.png
+framer/manifest.txt
 framer/preview.png
 framer/style.css
 framer/version

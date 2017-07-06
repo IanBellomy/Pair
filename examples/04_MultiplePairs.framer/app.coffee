@@ -5,7 +5,7 @@
 	— Ian Bellomy
 	
 ###
-
+document.body.style.cursor = "default"
 PairModule = require "Pair"
 
 dLayer = new Layer
@@ -49,3 +49,6 @@ for n in [0...10]
 	p.onDragEnter onDragEnter
 	p.onDragLeave onDragLeave
 	p.onDrop onDrop
+	# Note: Avoid invalidDrop events when using multiple pairs
+	# A valid drop for one pair could still result in an invalidDrop
+	# event firing from another pair

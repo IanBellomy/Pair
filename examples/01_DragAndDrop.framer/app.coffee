@@ -6,7 +6,6 @@
 	
 ###
 
-
 document.body.style.cursor = "default"
 PairModule = require "Pair"
 
@@ -43,8 +42,9 @@ largeDot.onMouseOver ->
 		scale:1.2
 
 largeDot.onMouseOut ->	
+
 	# this shouldn't need to be here but... webtech, ¯\_(ツ)_/¯
-	return if largeDot.ignoreEvents 		 
+	return if largeDot.ignoreEvents 
 	
 	@animate
 		options:

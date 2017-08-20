@@ -17,8 +17,12 @@ Frame-based contact events without dragging:
 
 ## Usage
 
-Place the Pair.coffee file in the modules folder of your project.
-In your file, write:
+Option 1 : Framer Modules (coming soon)
+<a href='https://open.framermodules.com/<MODULE NAME>'><img alt='Install with Framer Modules' src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' /></a>
+
+Option 2: Manual Install
+Doanload the Pair.coffee file and place it in the modules folder of your project.
+In your framer project, write:
 
 ````coffeescript
 PairModule = require "Pair"

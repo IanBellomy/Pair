@@ -1,0 +1,9 @@
+{
+    "name": "Pair",
+    "description": "Basic drag and drop and frame-based contact events.",
+    "author": "Ian Bellomy",
+    
+    "require": "PairModule = require 'Pair'",
+    "install": "Pair.coffee",
+    "example": "example.coffee"
+}

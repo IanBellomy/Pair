@@ -17,8 +17,8 @@ Frame-based contact events without dragging:
 
 ## Usage
 
-Option 1 : Framer Modules (coming soon)<br>
-<a href='https://open.framermodules.com/<MODULE NAME>'><img alt='Install with Framer Modules' src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' /></a>
+Option 1 : Framer Modules<br>
+<a href='https://open.framermodules.com/Pair'><img alt='Install with Framer Modules' src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' /></a>
 
 Option 2: Manual Install<br>
 Download the Pair.coffee file and place it in the modules folder of your project.<br>

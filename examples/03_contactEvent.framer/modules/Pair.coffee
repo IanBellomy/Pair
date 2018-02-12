@@ -8,6 +8,8 @@
 	
 ###
 
+
+
 class exports.Pair extends Framer.EventEmitter
 
 	# static properties
@@ -15,6 +17,9 @@ class exports.Pair extends Framer.EventEmitter
 	@draggedItems:[]			
 
 	constructor: (@_floater, @_anchor) ->		
+		
+		if Framer.Version.date < 1499243282	
+			throw new TypeError("Pair Module requires Framer Library update")
 
 		# validate
 		if !(@_floater instanceof Framer.Layer)
@@ -50,34 +55,34 @@ class exports.Pair extends Framer.EventEmitter
 		
 		# We want these event handler methods to be scoped to the Pair instance when they run, so they're here
 		@_floatMouseDown = (event,layer)=>
-			@_pauseEvent(event)
-			if @useHandCursor then @_floater.style.cursor = "-webkit-grabbing"
+			# @_pauseEvent(event)
+			# if @useHandCursor then @_floater.style.cursor = "-webkit-grabbing"
 		
 		@_floatMouseUp = (event,layer)=>			
-			@_pauseEvent(event)
-			if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
+			# @_pauseEvent(event)
+			# if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 			
 		@_floatOver = (event,layer) =>			
-			@_pauseEvent(event)
+			# @_pauseEvent(event)
 		
 		@_dragStartHandler= (event,layer) =>			
-			@_pauseEvent(event)			
+			# @_pauseEvent(event)			
 			@_validDragTarget = false			
 			@_dragging = true
 			Pair.draggedItems.push @_floater
 			# @_floater.style.pointerEvents = "none"
-			@_floater.visible = false
-			@_hoveredNode = document.elementFromPoint(event.clientX, event.clientY)			
+			@_floater.visible = false			
+			@_hoveredNode = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
 			@_isOverAnchor = @_anchor._element.contains(@_hoveredNode)
 			@_floater.visible = true
 			@emit "dragStart", @_floater
 	
 		@_dragHandler=(event) =>
-			@_pauseEvent(event)			
-			@_floater.visible = false
-			@_px = event.clientX
-			@_py = event.clientY
-			nodeUnderneath = document.elementFromPoint(event.clientX, event.clientY)
+			# @_pauseEvent(event)			
+			@_floater.visible = false			
+			@_px = event.contextPoint.x
+			@_py = event.contextPoint.y
+			nodeUnderneath = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
 			@_floater.visible = true
 			isNowOverAnchor = @_anchor._element.contains(nodeUnderneath)			
 			if isNowOverAnchor and not @_isOverAnchor
@@ -97,7 +102,7 @@ class exports.Pair extends Framer.EventEmitter
 			@_dragging = false			
 			index = Pair.draggedItems.indexOf @_floater
 			Pair.draggedItems.splice(index,1)
-			if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
+			# if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 			if @_validDragTarget				
 				@emit "drop", @_floater, @_anchor
 				@_validDragTarget = false
@@ -110,7 +115,7 @@ class exports.Pair extends Framer.EventEmitter
 				@emit "invalidContactDrop", @_floater
 				
 		@_floatMoveHandler = (event,layer) =>
-			@_pauseEvent(event)
+			# @_pauseEvent(event)
 			
 # 		@_anchorMouseOver=(event,layer)=>
 # 			if @_dragging  
@@ -205,7 +210,7 @@ class exports.Pair extends Framer.EventEmitter
 		@_previousDraggability = @_floater.draggable.enabled # FIXME: Bug in framer makes this return true if accessed!
 		@_floater.draggable.enabled = true
 		@_previousCursor = @_floater.style.cursor
-		if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
+		# if @useHandCursor then @_floater.style.cursor = "-webkit-grab"
 		@_hoveredNode = undefined
 		@_anchorPreviouslyIgnoredEvents = @_anchor.ignoreEvents
 		@_anchor.ignoreEvents = false

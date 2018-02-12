@@ -6,7 +6,7 @@
 	
 ###
 
-document.body.style.cursor = "default"
+document.body.style.cursor = "default" 
 PairModule = require "Pair"
 
 dotTarget = new Layer

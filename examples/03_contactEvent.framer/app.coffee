@@ -31,8 +31,8 @@ floatBlock.centerX()
 bg.onMouseDown (event)->
 	floatBlock.animate
 		properties:
-			x:event.pageX
-			y:event.pageY
+			midX:event.contextPoint.x
+			midY:event.contextPoint.y
 	
 
 pair = new PairModule.Pair(floatBlock,blockTarget)

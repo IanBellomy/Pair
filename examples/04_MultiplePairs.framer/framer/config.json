@@ -2,11 +2,10 @@
   "orientation" : 0,
   "updateDelay" : 0.29999999999999999,
   "designModeSelected" : 0,
-  "cachedDeviceHeight" : 900,
+  "cachedDeviceHeight" : 0,
   "contentScale" : 1,
-  "cachedDeviceWidth" : 1440,
-  "fullScreen" : false,
-  "deviceType" : "apple-macbook-pro",
+  "cachedDeviceWidth" : 0,
+  "deviceType" : "fullscreen",
   "sharedPrototype" : 0,
   "propertyPanelToggleStates" : {
 
@@ -18,5 +17,5 @@
   "foldedCodeRanges" : [
 
   ],
-  "deviceScale" : "fit"
+  "deviceScale" : -1
 }

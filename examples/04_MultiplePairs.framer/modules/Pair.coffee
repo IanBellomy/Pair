@@ -49,8 +49,8 @@ class exports.Pair extends Framer.EventEmitter
 		@_tempRange 			= undefined
 		@_contained 			= false
 		@_tempListener 			= {}		
-		@_px					= 0
-		@_py 					= 0
+		# @_px					= 0				# for use in the future
+		# @_py 					= 0				# for use in the future
 		@_dSquared = @getDistanceSquared()
 		
 		# We want these event handler methods to be scoped to the Pair instance when they run, so they're here
@@ -72,20 +72,24 @@ class exports.Pair extends Framer.EventEmitter
 			Pair.draggedItems.push @_floater
 			# @_floater.style.pointerEvents = "none"
 			@_floater.visible = false			
-			@_hoveredNode = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
+			@_hoveredNode = document.elementFromPoint(event.pageX, event.pageY)
 			@_isOverAnchor = @_anchor._element.contains(@_hoveredNode)
+				# Should probably dispatch dragOver event when starting in this situation?.. 
 			@_floater.visible = true
 			@emit "dragStart", @_floater
 	
 		@_dragHandler=(event) =>
 			# @_pauseEvent(event)			
 			@_floater.visible = false			
-			@_px = event.contextPoint.x
-			@_py = event.contextPoint.y
-			nodeUnderneath = document.elementFromPoint(event.contextPoint.x, event.contextPoint.y)
+			# @_px = event.contextPoint.x
+			# @_py = event.contextPoint.y
+			nodeUnderneath = document.elementFromPoint(event.pageX, event.pageY)
+			
+			# print inNodes
 			@_floater.visible = true
 			isNowOverAnchor = @_anchor._element.contains(nodeUnderneath)			
-			if isNowOverAnchor and not @_isOverAnchor
+
+			if isNowOverAnchor and not @_isOverAnchor				
 				@_validDragTarget = true					
 				@_isOverAnchor = true
 				@_hoveredNode = nodeUnderneath				

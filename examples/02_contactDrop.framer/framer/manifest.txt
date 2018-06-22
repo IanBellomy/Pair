@@ -21,3 +21,4 @@ framer/coffee-script.js
 framer/framer.init.js
 framer/framer.js
 modules/Pair.coffee
+modules/Pair.coffee.bak.coffee
